@@ -29,9 +29,13 @@ function startCalc() {
     }
     if (inputCheck(doc.reachedInput.value)) {
         reached = Number(doc.reachedInput.value);
-    }   
-    state.unsuccessful = getUnsuccessCount(competitor, reached);
-    state.unsuccessfulPercent = getUnsuccessPercent(competitor, state.unsuccessful);
+    }  
+     
+    if (competitor >= reached) {
+        state.unsuccessful = getUnsuccessCount(competitor, reached);
+        state.unsuccessfulPercent = getUnsuccessPercent(competitor, state.unsuccessful);
+    }
+
     doc.unsuccessfulInput.value = state.unsuccessful;
     doc.unsuccessfulPercentInput.value = state.unsuccessfulPercent;
 
